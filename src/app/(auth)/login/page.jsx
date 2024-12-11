@@ -29,7 +29,7 @@ export default function LoginPage() {
                             <Input id="password" label="Password" type="password" autoComplete="current-password" />
 
                             <div className="flex items-center justify-between">
-                                <Checkbox id="remember-me" label="Remember me" />
+                                <Checkbox id="remember-myarne" label="Remember me" />
 
                                 <div className="text-sm/6">
                                     <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">

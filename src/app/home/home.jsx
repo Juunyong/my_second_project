@@ -7,6 +7,8 @@ import Bento from './bento';
 import Hero2 from './hero2';
 import Social from './social';
 import ListSwiper from '@/components/list/ListSwiper';
+import App from './img_button/page';
+import ColorSection from './color_section/page';
 
 const Home = () => {
     return (
@@ -16,8 +18,10 @@ const Home = () => {
             <ListSwiper />
             {/* <Hero /> */}
             <Bento />
+            <App />
             <IntroSwiper />
             <News mockNews={mockNews} title="뉴스" />
+            <ColorSection />
         </div>
     );
 };

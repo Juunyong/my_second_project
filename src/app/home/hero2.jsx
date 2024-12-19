@@ -4,8 +4,8 @@ import React from 'react';
 
 const Hero2 = () => {
     return (
-        <div className="py-[100px] container">
-            <Heading className="absolute m-auto z-10 text-[17vw] text-center">We Are All Banksy.</Heading>
+        <div className="py-[100px] container relative">
+            <Heading className="absolute z-10 text-[10vw] text-center">We Are All Banksy.</Heading>
             <AspectRatio ratio={2 / 1}>
                 <Image src="/images/pattern/main/main__img.jpg" alt="dd" width={1300} height={1300} />
             </AspectRatio>

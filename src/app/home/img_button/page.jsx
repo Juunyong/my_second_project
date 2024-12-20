@@ -30,8 +30,8 @@ function App() {
 
             {/* 버튼 목록 */}
             <div style={{ marginTop: '20px' }}>
-                <button onClick={() => handleImageChange('image1.jpg')}>이미지 1</button>
-                <button onClick={() => handleImageChange('image2.jpg')}>이미지 2</button>
+                <button onClick={() => handleImageChange('/images/pattern/main/banksy1.jpg')}>이미지 1</button>
+                <button onClick={() => handleImageChange('/images/pattern/main/banksytree.jpg')}>이미지 2</button>
                 <button onClick={() => handleImageChange('image3.jpg')}>이미지 3</button>
             </div>
         </div>

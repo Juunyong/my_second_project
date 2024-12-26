@@ -21,6 +21,7 @@ const Hero2 = () => {
                 {`
           .main__title {
             opacity: 0;
+            color : white;
             animation: fadeInTitle 2s ease forwards;
           }
 
@@ -45,9 +46,13 @@ const Hero2 = () => {
           }
         `}
             </style>
-            <div className="py-[100px] container relative">
+            <div className="py-[100px]  relative">
                 {/* Heading */}
-                <Heading className="absolute z-10 text-[15vw] text-center main__title">We Are All Banksy.</Heading>
+                <div className="mx-auto my-auto block">
+                    <Heading className="decoration-white absolute z-10 text-[13vw] text-center main__title ">
+                        We Are All Banksy.
+                    </Heading>
+                </div>
 
                 {/* Image */}
                 <AspectRatio ratio={2 / 1}>

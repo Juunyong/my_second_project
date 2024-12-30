@@ -15,12 +15,13 @@ const Home = () => {
         <div className="flex flex-col ">
             <Hero2 />
             <Social />
-            <ListSwiper />
+
             {/* <Hero /> */}
             <Img />
             <Bento />
             <App />
             <IntroSwiper />
+            <ListSwiper />
             <News mockNews={mockNews} title="뉴스" />
         </div>
     );

@@ -31,26 +31,27 @@ const cardData2 = [
 
 const Social = () => {
     useEffect(() => {
+        // GSAP ScrollTrigger 설정
         const cards = document.querySelectorAll('.fade-in');
-
         cards.forEach((card) => {
             gsap.fromTo(
                 card,
-                { opacity: 0, y: 50 }, // Initial state (invisible and slightly moved down)
+                { opacity: 0, y: 50 }, // 초기 상태
                 {
                     opacity: 1,
-                    y: 0, // Final state (fully visible and in place)
-                    duration: 1, // Animation duration
+                    y: 0, // 최종 상태
+                    duration: 1, // 애니메이션 지속 시간
                     scrollTrigger: {
-                        trigger: card, // Element that triggers the animation
-                        start: 'top 80%', // Start animation when top of element reaches 80% of viewport
-                        end: 'bottom 60%', // End animation when bottom of element reaches 60% of viewport
-                        toggleActions: 'play none none reverse', // Play animation on enter, reverse on leave
+                        trigger: card, // 트리거 요소
+                        start: 'top 80%', // 뷰포트의 80% 지점에서 시작
+                        end: 'bottom 60%', // 뷰포트의 60% 지점에서 끝남
+                        toggleActions: 'play none none reverse', // 애니메이션 동작 설정
                     },
                 }
             );
         });
 
+        // Typed.js 설정
         const options = {
             strings: ['Art should comfort the disturbed and disturb the comfortable.', 'Welcome to the Next Screen!'], // 타이핑할 텍스트 배열
             typeSpeed: 50, // 타이핑 속도 (ms)
@@ -61,43 +62,53 @@ const Social = () => {
         const typed = new Typed('.typed-element', options);
 
         return () => {
-            clearTimeout(timer); // 타이머 정리
             typed.destroy(); // Typed.js 인스턴스 정리
         };
     }, []);
 
     return (
-        <div className="bg-black/90 py-24 sm:py-32">
-            <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-                <SimpleGrid columns={{ base: 1, xl: 1 }} gap="3" mt={4}>
-                    {cardData2.map((card) => (
-                        <Card key={card.id} bgColor="gray.90" className="fade-in">
-                            <CardBody className="flex flex-col md:flex-row gap-40">
-                                <Image
-                                    className="w-1/3"
-                                    objectFit="cover"
-                                    width={1200}
-                                    height={1200}
-                                    src={card.imageUrl}
-                                    alt={card.title}
-                                />
-                                <Box>
-                                    <Heading className="text-[10vw] text-yellow-400" size="xl" mb="2">
-                                        {card.title}
-                                    </Heading>
-                                    <Text className="text-[1.5vw] text-white">{card.semiTitle}</Text>
-                                    <Text className="text-[1.5vw] text-white">{card.description}</Text>
-                                    <Text className="text-[1.5vw] text-white">{card.description}</Text>
-                                    <Heading as="h1" className="typed-text">
-                                        <span className="typed-element text-[1.5vw]"></span>
-                                    </Heading>
-                                </Box>
-                            </CardBody>
-                        </Card>
-                    ))}
-                </SimpleGrid>
+        <>
+            <style>
+                {`
+                .typed-text {
+                    font-size: 3rem;
+                    text-align: center;
+                    color : white;
+                }
+                `}
+            </style>
+            <div className="bg-black/90 py-24 sm:py-32">
+                <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+                    <SimpleGrid columns={{ base: 1, xl: 1 }} gap="3" mt={4}>
+                        {cardData2.map((card) => (
+                            <Card key={card.id} bgColor="gray.90" className="fade-in">
+                                <CardBody className="flex flex-col md:flex-row gap-40">
+                                    <Image
+                                        className="w-1/3"
+                                        objectFit="cover"
+                                        width={1200}
+                                        height={1200}
+                                        src={card.imageUrl}
+                                        alt={card.title}
+                                    />
+                                    <Box>
+                                        <Heading className="text-[10vw] text-yellow-400" size="xl" mb="2">
+                                            {card.title}
+                                        </Heading>
+                                        <Text className="text-[1.5vw] text-white">{card.semiTitle}</Text>
+                                        <Text className="text-[1.5vw] text-white">{card.description}</Text>
+                                        {/* Typed.js 텍스트 */}
+                                        <Heading className="typed-text">
+                                            <span className="typed-element"></span>
+                                        </Heading>
+                                    </Box>
+                                </CardBody>
+                            </Card>
+                        ))}
+                    </SimpleGrid>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -53,7 +53,10 @@ const Social = () => {
 
         // Typed.js 설정
         const options = {
-            strings: ['Art should comfort the disturbed and disturb the comfortable.', 'Welcome to the Next Screen!'], // 타이핑할 텍스트 배열
+            strings: [
+                'Art should comfort the disturbed and disturb the comfortable.',
+                '예술은 불안한 자들을 편안하게 하고, 편안한 자들을 불안하게 해야 한다.',
+            ], // 타이핑할 텍스트 배열
             typeSpeed: 50, // 타이핑 속도 (ms)
             backSpeed: 30, // 백스페이스 속도 (ms)
             loop: true, // 반복 여부
@@ -70,42 +73,74 @@ const Social = () => {
         <>
             <style>
                 {`
-                .typed-text {
-                    font-size: 3rem;
+                .fullscreen-video-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100vh; /* 화면 전체 높이 */
+                    overflow: hidden;
+                }
+
+                .fullscreen-video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover; /* 비율을 유지하며 화면을 채움 */
+                    z-index: -2; /* 콘텐츠 뒤로 이동 */
+                }
+
+                /* 비디오 어둡게 처리 */
+                .video-overlay::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5); /* 어두운 오버레이 */
+                    z-index: -1; /* 비디오 위에 표시되지만 콘텐츠 뒤로 이동 */
+                }
+
+                .content-overlay {
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
                     text-align: center;
-                    color : white;
+ 
+                }
+
+                .typed-text {
+                color : white;
+                    font-size: 1.5vw;
+                    text-align: center;
                 }
                 `}
             </style>
-            <div className="bg-black/90 py-24 sm:py-32">
-                <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-                    <SimpleGrid columns={{ base: 1, xl: 1 }} gap="3" mt={4}>
-                        {cardData2.map((card) => (
-                            <Card key={card.id} bgColor="gray.90" className="fade-in">
-                                <CardBody className="flex flex-col md:flex-row gap-40">
-                                    <Image
-                                        className="w-1/3"
-                                        objectFit="cover"
-                                        width={1200}
-                                        height={1200}
-                                        src={card.imageUrl}
-                                        alt={card.title}
-                                    />
-                                    <Box>
-                                        <Heading className="text-[10vw] text-yellow-400" size="xl" mb="2">
-                                            {card.title}
-                                        </Heading>
-                                        <Text className="text-[1.5vw] text-white">{card.semiTitle}</Text>
-                                        <Text className="text-[1.5vw] text-white">{card.description}</Text>
-                                        {/* Typed.js 텍스트 */}
-                                        <Heading className="typed-text">
-                                            <span className="typed-element"></span>
-                                        </Heading>
-                                    </Box>
-                                </CardBody>
-                            </Card>
-                        ))}
-                    </SimpleGrid>
+            <div className="fullscreen-video-container video-overlay">
+                {/* 비디오 배경 */}
+                <video autoPlay muted loop className="fullscreen-video">
+                    <source src="/videos/banksy_birmingham.mp4" type="video/mp4" />
+                </video>
+
+                {/* 콘텐츠 */}
+                <div className="content-overlay">
+                    {cardData2.map((card) => (
+                        <Card key={card.id} bgColor="transparent" className="fade-in">
+                            <CardBody>
+                                <Heading className="text-[12vw] text-yellow-400" size="xl" mb="2">
+                                    {card.title}
+                                </Heading>
+                                <Text className="text-[1vw] text-white">{card.semiTitle}</Text>
+                                <Text className="text-[1.5vw] text-white">{card.description}</Text>
+                                {/* Typed.js 텍스트 */}
+                                <Heading className="typed-text">
+                                    <span className="typed-element"></span>
+                                </Heading>
+                            </CardBody>
+                        </Card>
+                    ))}
                 </div>
             </div>
         </>

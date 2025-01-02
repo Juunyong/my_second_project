@@ -48,6 +48,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
 
 .hidden {
   opacity: 0; /* 숨김 상태 */
+  
 }
 
 `}
@@ -80,19 +81,25 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                             <Bars3Icon aria-hidden="true" className="size-6" />
                                         </button>
                                     </div>
-                                    <nav className="hidden lg:flex lg:gap-x-12">
+                                    <nav
+                                        className={`1hidden lg:flex lg:gap-x-12 ${showContent ? 'visible' : 'hidden'}`}
+                                    >
                                         {navigation.map((item) => (
                                             <a
                                                 key={item.name}
                                                 href={item.href}
-                                                className="text-sm/6 font-semibold text-gray-900"
+                                                className="text-sm/6 font-semibold text-white"
                                             >
                                                 {item.name}
                                             </a>
                                         ))}
                                     </nav>
-                                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                                        <a href="#" className="text-sm/6 font-semibold text-gray-900">
+                                    <div
+                                        className={`hidden lg:flex lg:flex-1 lg:justify-end ${
+                                            showContent ? 'visible' : 'hidden'
+                                        }`}
+                                    >
+                                        <a href="#" className="text-sm/6 font-semibold text-white">
                                             Log in <span aria-hidden="true">&rarr;</span>
                                         </a>
                                     </div>

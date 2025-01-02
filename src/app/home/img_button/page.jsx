@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import './App.css'; // CSS 파일에서 스타일 정의
 

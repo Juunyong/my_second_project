@@ -12,10 +12,11 @@ import {
     Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Typed from 'typed.js';
+import SplitType from 'split-type';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +31,7 @@ const cardData2 = [
 ];
 
 const Social = () => {
+    const textRef = useRef(null);
     useEffect(() => {
         // GSAP ScrollTrigger 설정
         const cards = document.querySelectorAll('.fade-in');
@@ -50,6 +52,36 @@ const Social = () => {
                 }
             );
         });
+        // Split the text into individual characters
+        const split = new SplitType(textRef.current, { types: 'chars' });
+
+        // Apply GSAP animation for glitch effect
+        const glitchAnimation = () => {
+            gsap.timeline({ repeat: -1, repeatDelay: 0.2 })
+                .to('.char', {
+                    x: () => gsap.utils.random(-2, 2), // 랜덤한 x축 이동
+                    y: () => gsap.utils.random(-2, 2), // 랜덤한 y축 이동
+                    color: '#ff0000', // 빨간색으로 순간적으로 변경
+                    duration: 0.05,
+                    stagger: 0.02,
+                })
+                .to('.char', {
+                    x: 0,
+                    y: 0,
+                    color: '#00ff00', // 초록색으로 순간적으로 변경
+                    duration: 0.05,
+                    stagger: 0.02,
+                })
+                .to('.char', {
+                    x: () => gsap.utils.random(-2, 2),
+                    y: () => gsap.utils.random(-2, 2),
+                    color: '#ffffff', // 원래 색상으로 복귀
+                    duration: 0.05,
+                    stagger: 0.02,
+                });
+        };
+
+        glitchAnimation();
 
         // Typed.js 설정
         const options = {
@@ -57,7 +89,7 @@ const Social = () => {
                 'Art should comfort the disturbed and disturb the comfortable.',
                 '예술은 불안한 자들을 편안하게 하고, 편안한 자들을 불안하게 해야 한다.',
             ], // 타이핑할 텍스트 배열
-            typeSpeed: 50, // 타이핑 속도 (ms)
+            typeSpeed: 30, // 타이핑 속도 (ms)
             backSpeed: 30, // 백스페이스 속도 (ms)
             loop: true, // 반복 여부
             backDelay: 1000, // 텍스트 삭제 후 대기 시간 (ms)
@@ -66,6 +98,9 @@ const Social = () => {
 
         return () => {
             typed.destroy(); // Typed.js 인스턴스 정리
+            timeline.kill();
+            gsap.killTweensOf('.char');
+            split.revert();
         };
     }, []);
 
@@ -73,6 +108,38 @@ const Social = () => {
         <>
             <style>
                 {`
+                .glitch-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+}
+
+.char {
+  display: inline-block;
+}
+
+/* 글리치 효과용 중첩 텍스트 */
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text); /* 동일한 텍스트 복제 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitch-text::before {
+  color: #ff0000; /* 빨간색 */
+  z-index: -1;
+}
+
+.glitch-text::after {
+  color: #00ff00; /* 초록색 */
+  z-index: -2;
+}
                 .fullscreen-video-container {
                     position: relative;
                     width: 100%;
@@ -113,7 +180,7 @@ const Social = () => {
 
                 .typed-text {
                 color : white;
-                    font-size: 1.5vw;
+                    font-size: 1vw;
                     text-align: center;
                 }
                 `}
@@ -129,7 +196,7 @@ const Social = () => {
                     {cardData2.map((card) => (
                         <Card key={card.id} bgColor="transparent" className="fade-in">
                             <CardBody>
-                                <Heading className="text-[12vw] text-yellow-400" size="xl" mb="2">
+                                <Heading className="py-20 text-[12vw] text-yellow-400" size="xl" mb="2">
                                     {card.title}
                                 </Heading>
                                 <Text className="text-[1vw] text-white">{card.semiTitle}</Text>
@@ -138,6 +205,10 @@ const Social = () => {
                                 <Heading className="typed-text">
                                     <span className="typed-element"></span>
                                 </Heading>
+                                <div ref={textRef} className="text-white glitch-text">
+                                    지지직 효과!
+                                </div>
+                                ;
                             </CardBody>
                         </Card>
                     ))}

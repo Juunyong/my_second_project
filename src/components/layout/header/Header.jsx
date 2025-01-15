@@ -9,7 +9,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog, DialogPanel } from '@headlessui/react';
 
 const navigation = [
-    { name: 'About', href: '#' },
+    { name: 'About', href: 'about' },
     { name: 'News', href: '#' },
     { name: 'Arts', href: '#' },
     { name: 'Company', href: '#' },

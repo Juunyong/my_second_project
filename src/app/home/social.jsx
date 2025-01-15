@@ -55,34 +55,6 @@ const Social = () => {
         // Split the text into individual characters
         const split = new SplitType(textRef.current, { types: 'chars' });
 
-        // Apply GSAP animation for glitch effect
-        const glitchAnimation = () => {
-            gsap.timeline({ repeat: -1, repeatDelay: 0.2 })
-                .to('.char', {
-                    x: () => gsap.utils.random(-2, 2), // 랜덤한 x축 이동
-                    y: () => gsap.utils.random(-2, 2), // 랜덤한 y축 이동
-                    color: '#ff0000', // 빨간색으로 순간적으로 변경
-                    duration: 0.05,
-                    stagger: 0.02,
-                })
-                .to('.char', {
-                    x: 0,
-                    y: 0,
-                    color: '#00ff00', // 초록색으로 순간적으로 변경
-                    duration: 0.05,
-                    stagger: 0.02,
-                })
-                .to('.char', {
-                    x: () => gsap.utils.random(-2, 2),
-                    y: () => gsap.utils.random(-2, 2),
-                    color: '#ffffff', // 원래 색상으로 복귀
-                    duration: 0.05,
-                    stagger: 0.02,
-                });
-        };
-
-        glitchAnimation();
-
         // Typed.js 설정
         const options = {
             strings: [
@@ -107,39 +79,7 @@ const Social = () => {
     return (
         <>
             <style>
-                {`
-                .glitch-text {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #ffffff;
-  position: relative;
-}
-
-.char {
-  display: inline-block;
-}
-
-/* 글리치 효과용 중첩 텍스트 */
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text); /* 동일한 텍스트 복제 */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.glitch-text::before {
-  color: #ff0000; /* 빨간색 */
-  z-index: -1;
-}
-
-.glitch-text::after {
-  color: #00ff00; /* 초록색 */
-  z-index: -2;
-}
+                {` 
                 .fullscreen-video-container {
                     position: relative;
                     width: 100%;
@@ -205,10 +145,6 @@ const Social = () => {
                                 <Heading className="typed-text">
                                     <span className="typed-element"></span>
                                 </Heading>
-                                <div ref={textRef} className="text-white glitch-text">
-                                    지지직 효과!
-                                </div>
-                                ;
                             </CardBody>
                         </Card>
                     ))}

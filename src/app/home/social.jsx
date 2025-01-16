@@ -17,6 +17,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Typed from 'typed.js';
 import SplitType from 'split-type';
+import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,14 +116,29 @@ const Social = () => {
                     left: 50%;
                     transform: translate(-50%, -50%);
                     text-align: center;
- 
                 }
-
                 .typed-text {
                 color : white;
                     font-size: 1vw;
                     text-align: center;
                 }
+                    @keyframes blurAnimation {
+                    0%, 70% { /* 일반 상태 유지 (80% 동안) */
+                    filter: blur(0);
+                    opacity: 1;
+                }
+                    80% { /* 블러 상태 시작 */
+                    filter: blur(20px);
+                    opacity: 1;
+                }
+                    100% { /* 블러 상태 끝 */
+                    filter: blur(0);
+                    opacity: 1;
+                }
+            }
+        .blur-text {
+            animation: blurAnimation 7s infinite;
+            }
                 `}
             </style>
             <div className="fullscreen-video-container video-overlay">
@@ -132,11 +148,12 @@ const Social = () => {
                 </video>
 
                 {/* 콘텐츠 */}
+
                 <div className="content-overlay">
                     {cardData2.map((card) => (
                         <Card key={card.id} bgColor="transparent" className="fade-in">
                             <CardBody>
-                                <Heading className="py-20 text-[12vw] text-yellow-400" size="xl" mb="2">
+                                <Heading className="blur-text py-20 text-[12vw] text-yellow-400" size="xl" mb="2">
                                     {card.title}
                                 </Heading>
                                 <Text className="text-[1vw] text-white">{card.semiTitle}</Text>

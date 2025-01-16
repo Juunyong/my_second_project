@@ -4,16 +4,7 @@ import React from 'react';
 
 const Img = () => {
     return (
-        <div className="flex h-screen bg-black ">
-            <div>
-                <Image
-                    className="-z-10 absolute h-full w-full"
-                    src="/images/pattern/main/banksy_road.jpg"
-                    alt="banksy1"
-                    width={1300}
-                    height={1300}
-                ></Image>
-            </div>
+        <div className=" h-screen bg-black ">
             <div className="z-10">
                 <Heading className="text-center text-[10vw] text-white">Imagination.</Heading>
                 <div className="container flex flex-row gap-20 justify-center py-20">

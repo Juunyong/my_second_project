@@ -14,7 +14,7 @@ const Gsapgg = () => {
         <>
             <style>
                 {`
-                 @import url(https://db.onlinewebfonts.com/c/384a6031928e262848e4e7ef80037466?family=Kudryashev+Display+Sans);
+                @import url(https://db.onlinewebfonts.com/c/384a6031928e262848e4e7ef80037466?family=Kudryashev+Display+Sans);
                 .section_index_hello {
                 position: relative;
     width: 100%;

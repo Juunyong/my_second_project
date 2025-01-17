@@ -21,6 +21,7 @@ const Hero2 = () => {
         <>
             <style>
                 {`
+             
           .main__container {
             position: relative;
             height: 100vh; /* 컨테이너 전체 높이 */
@@ -52,6 +53,7 @@ const Hero2 = () => {
             font-size : 20vh;
             text-align :center;
             z-index: 2; /* 배경 위에 위치 */
+   
           }
 
           .main__image-wrapper {

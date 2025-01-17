@@ -9,6 +9,7 @@ import Social from './social';
 import ListSwiper from '@/components/list/ListSwiper';
 import App from './img_button/page';
 import Img from './img';
+import Gsap from './gsapgg';
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
             <IntroSwiper />
             <ListSwiper />
             <News mockNews={mockNews} title="뉴스" />
+            <Gsap />
         </div>
     );
 };

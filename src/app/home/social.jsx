@@ -153,7 +153,7 @@ const Social = () => {
                     {cardData2.map((card) => (
                         <Card key={card.id} bgColor="transparent" className="fade-in">
                             <CardBody>
-                                <Heading className="blur-text py-20 text-[12vw] text-yellow-400" size="xl" mb="2">
+                                <Heading className="blur-text py-20 text-[15vw] text-yellow-400" size="xl" mb="2">
                                     {card.title}
                                 </Heading>
                                 <Text className="text-[1vw] text-white">{card.semiTitle}</Text>

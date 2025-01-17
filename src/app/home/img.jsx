@@ -6,7 +6,7 @@ const Img = () => {
     return (
         <div className=" h-screen bg-black ">
             <div className="z-10">
-                <Heading className="text-center text-[10vw] text-white">Imagination.</Heading>
+                <p className="leading-none text-center text-[10vw] text-white font-bold">Imagination.</p>
                 <div className="container flex flex-row gap-20 justify-center py-20">
                     <Image src="/images/pattern/main/banksy1.jpg" alt="banksy1" width={400} height={400}></Image>
                     <Image

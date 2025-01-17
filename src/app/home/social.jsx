@@ -138,6 +138,7 @@ const Social = () => {
             }
         .blur-text {
             animation: blurAnimation 7s infinite;
+
             }
                 `}
             </style>
@@ -152,17 +153,19 @@ const Social = () => {
                 <div className="content-overlay">
                     {cardData2.map((card) => (
                         <Card key={card.id} bgColor="transparent" className="fade-in">
-                            <CardBody>
-                                <Heading className="blur-text py-20 text-[15vw] text-yellow-400" size="xl" mb="2">
-                                    {card.title}
-                                </Heading>
-                                <Text className="text-[1vw] text-white">{card.semiTitle}</Text>
-                                <Text className="text-[1.5vw] text-white">{card.description}</Text>
-                                {/* Typed.js 텍스트 */}
-                                <Heading className="typed-text">
-                                    <span className="typed-element"></span>
-                                </Heading>
-                            </CardBody>
+                            <p
+                                className="leading-none font-bold blur-text py-20 text-[13vw] text-yellow-400"
+                                size="xl"
+                                mb="2"
+                            >
+                                {card.title}
+                            </p>
+                            <Text className="text-[1vw] text-white">{card.semiTitle}</Text>
+                            <Text className="text-[1.5vw] text-white">{card.description}</Text>
+                            {/* Typed.js 텍스트 */}
+                            <Heading className="typed-text">
+                                <span className="typed-element"></span>
+                            </Heading>
                         </Card>
                     ))}
                 </div>

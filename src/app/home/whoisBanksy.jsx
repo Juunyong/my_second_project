@@ -31,7 +31,7 @@ const cardData2 = [
     },
 ];
 
-const Social = () => {
+const whoisBanksy = () => {
     const textRef = useRef(null);
     useEffect(() => {
         // GSAP ScrollTrigger 설정
@@ -174,4 +174,4 @@ const Social = () => {
     );
 };
 
-export default Social;
+export default whoisBanksy;

@@ -19,7 +19,7 @@ const Gsapgg = () => {
                 position: relative;
     width: 100%;
     min-height: 102vh;
-    background-color: #e9e8dd;
+    background-color:#222222;
     transition: 0.6s ease-in-out background-color;
     overflow: hidden;
 
@@ -59,6 +59,7 @@ const Gsapgg = () => {
     scale: none;
     transform: translate(0px, 0px);
     opacity: 1;
+    color : white;
     }
     .bar_image {
     height: 4.35vw;
@@ -86,9 +87,31 @@ const Gsapgg = () => {
                         <div className="section_title col txt-h4 ">
                             <div className="line_div">
                                 <div className="row">
+                                    <span>The Art</span>
+                                    <div className="bar_image">
+                                        <img src="images/pattern/main/14864.jpg" alt="" />
+                                    </div>
+                                    <span>Terrorist Banksy, </span>
+                                </div>
+                            </div>
+                            <div className="line_div">
+                                <div className="row">
+                                    <span>Any place, Any </span>
+                                    <div className="bar_image">
+                                        <img src="images/pattern/main/10264.jpg" alt="" />
+                                    </div>
+                                    <span>three-dimensional</span>
+                                </div>
+                            </div>
+                            <div className="line_div">
+                                <div className="row">
                                     <span>with a </span>
                                     <div className="bar_image">
-                                        <img src="images/pattern/main/bar_img1.png" alt="" />
+                                        <img
+                                            src="images/pattern/main/16264.jpg
+                                        "
+                                            alt=""
+                                        />
                                     </div>
                                     <span>three-dimensional space</span>
                                 </div>
@@ -97,25 +120,7 @@ const Gsapgg = () => {
                                 <div className="row">
                                     <span>with a </span>
                                     <div className="bar_image">
-                                        <img src="images/pattern/main/bar_img1.png" alt="" />
-                                    </div>
-                                    <span>three-dimensional space</span>
-                                </div>
-                            </div>
-                            <div className="line_div">
-                                <div className="row">
-                                    <span>with a </span>
-                                    <div className="bar_image">
-                                        <img src="images/pattern/main/bar_img1.png" alt="" />
-                                    </div>
-                                    <span>three-dimensional space</span>
-                                </div>
-                            </div>
-                            <div className="line_div">
-                                <div className="row">
-                                    <span>with a </span>
-                                    <div className="bar_image">
-                                        <img src="images/pattern/main/bar_img1.png" alt="" />
+                                        <img src="images/pattern/main/14364.jpg" alt="" />
                                     </div>
                                     <span>three-dimensional space</span>
                                 </div>

@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import React from 'react';
 
 const Gsapgg = () => {
-    gsap.from('.line_div', {
+    gsap.from('.line_span', {
         y: '100%',
         opacity: 1,
         duration: 0.3,
@@ -87,25 +87,25 @@ const Gsapgg = () => {
                         <div className="section_title col txt-h4 ">
                             <div className="line_div">
                                 <div className="row">
-                                    <span>The Art</span>
+                                    <span className="line_span">The Art</span>
                                     <div className="bar_image">
                                         <img src="images/pattern/main/14864.jpg" alt="" />
                                     </div>
-                                    <span>Terrorist Banksy, </span>
+                                    <span className="line_span">Terrorist Banksy,</span>
                                 </div>
                             </div>
                             <div className="line_div">
                                 <div className="row">
-                                    <span>Any place, Any </span>
+                                    <span className="line_span">Any place, Any </span>
                                     <div className="bar_image">
                                         <img src="images/pattern/main/10264.jpg" alt="" />
                                     </div>
-                                    <span>three-dimensional</span>
+                                    <span className="line_span">three-dimensional</span>
                                 </div>
                             </div>
                             <div className="line_div">
                                 <div className="row">
-                                    <span>with a </span>
+                                    <span className="line_span">with a </span>
                                     <div className="bar_image">
                                         <img
                                             src="images/pattern/main/16264.jpg
@@ -113,16 +113,16 @@ const Gsapgg = () => {
                                             alt=""
                                         />
                                     </div>
-                                    <span>three-dimensional space</span>
+                                    <span className="line_span">three-dimensional space</span>
                                 </div>
                             </div>
                             <div className="line_div">
                                 <div className="row">
-                                    <span>with a </span>
+                                    <span className="line_span">with a </span>
                                     <div className="bar_image">
                                         <img src="images/pattern/main/14364.jpg" alt="" />
                                     </div>
-                                    <span>three-dimensional space</span>
+                                    <span className="line_span">three-dimensional space</span>
                                 </div>
                             </div>
                         </div>
